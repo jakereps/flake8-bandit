@@ -22,12 +22,12 @@ EMAIL = "tyler@myndshft.com"
 AUTHOR = "Tyler Wince"
 
 # What packages are required for this module to be executed?
-REQUIRED = ["flake8", "bandit"]
+REQUIRED = ["flake8", "bandit", "flake8-polyfill"]
 
 here = os.path.abspath(os.path.dirname(__file__))
 
 with io.open(os.path.join(here, "README.md"), encoding="utf-8") as f:
-    long_description = "\n" + f.read()
+    LONG_DESCRIPTION = "\n" + f.read()
 
 
 class UploadCommand(Command):
@@ -68,7 +68,7 @@ setup(
     name=NAME,
     version=get_version(),
     description=DESCRIPTION,
-    long_description=long_description,
+    long_description=LONG_DESCRIPTION,
     author=AUTHOR,
     author_email=EMAIL,
     url=URL,
@@ -95,4 +95,5 @@ setup(
     ],
     cmdclass={
         "upload": UploadCommand,
-    }, )
+    },
+)
